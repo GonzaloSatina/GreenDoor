@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GreenDoor-Contacto</title>
+    <meta name="description" content="Contacto Greendor">
+    <link rel="stylesheet" href="../CSS/Styles.css">
+    <link rel="stylesheet" href="../Bootstrap 5.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-otras navbar-expand-sm navbar-light">
+
+            <div class="container-fluid navegation py-0">
+                <a class="navbar-brand" href="../Index.html">
+                    <img loading="lazy" class="ms-2 p-2 icono" src="../img/GreenDoor (9).png" width="200" alt="">
+                </a>
+
+                <button class="me-4 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toogle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item h3 mx-3"><a class="nav-link text-white" href="../Index.html">Inicio</a></li>
+                        <li class="nav-item h3 mx-3"><a class="nav-link text-white" href="Productos.html">Productos</a></li>
+                        <li class="nav-item h3 mx-3"><a class="nav-link text-white" href="Nosotros.html">Nosotros</a></li>
+                        <li class="nav-item h3 mx-3"><a class="nav-link text-white" href="Preguntas.html">Preguntas</a></li>
+                        <li class="nav-item h3 mx-3"><a class="nav-link text-white" href="Contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="carrito-compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="contenido" class="oculto">
+                        <table id="lista-carrito" class="">
+                            <thead>
+                                <tr class="palabras-carrito">
+                                    <th></th>
+                                    <th class="palabra-nombre-carrito">Nombre</th>
+                                    <th class="palabra-precio-carrito">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img loading="lazy" src="../img/Led-1.jpg" class="img-producto-carrito">
+                                    </td>
+                                    <td class="nombre-carrito">Led Full Spectrum 300w</td>
+                                    <td class="precio-carrito">$18.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="botones-carrito">
+                            <a href="Carrito.html" class="boton boton-vaciar">Vaciar Carrito</a>
+                            <a href="#" class="boton">Ver Carrito</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="seccion-contacto">
+            <h2 class="titulo-contacto">Contacto</h2>
+            <hr>
+            <div class="seccion-contacto-2">
+                <div class="contacto-1 contenedor contenido-centrado">
+
+                    <h2 class="fw-300 centrar-texto"> Llena el formulario de Contacto</h2>
+
+                    <form class="contacto" action="">
+
+                        <fieldset>
+                            <p>Información Personal</p>
+
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" placeholder="Tu Nombre" required>
+
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" placeholder="Tu Correo Electrónico" required>
+
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" placeholder="Tu Teléfono" required>
+
+                            <label for="mensaje">Mensaje:</label>
+                            <textarea name="mensaje del usuario" id="mensaje"></textarea>
+
+
+                        </fieldset>
+
+
+                        <fieldset>
+                            <p>¿Cómo desea ser contactado?</p>
+                            <div class="forma-contacto">
+                                <label for="telefono">Teléfono</label>
+                                <input type="radio" name="contacto" value="telefono" id="telefono">
+                                <label for="correo">E-mail</label>
+                                <!-- Como ya puse for="email" más arriba ahora debo poner otro nombre -->
+                                <input type="radio" name="contacto" value="correo" id="correo">
+                            </div>
+                            <!-- Para poder seleccionar sólo uno y que no se puedan seleccionar dos al mismo tiempo repetimos en ambos name="contacto"
+            
+                            Value sirve para que del lado del servidor sepan de que se tratan los datos ingresados por el usuario
+                            
+                            Otra utilidad: 
+                            <p>Elija el menú</p>
+                            <input type="checkbox" name="orden" value="hamburguesa"> Hamburguesa
+                            <input type="checkbox" name="orden" value="papas"> Papas
+                            Aquí en el checkbox el usuario puede elegir todos los que quiera
+            
+                            <input type="password" name=""> donde los valores en la pantalla del usuario estarán ocultos
+                            <input type="search" name="">  donde aparece una cruz para poder borrar lo escrito en ese input
+                            <input type="url" name=""> donde aparecerá un .com en el teclado
+                        -->
+
+                            <p>Si eligió teléfono, elija fecha y hora (de 09:00 a 20:00 hs)</p>
+                            <label for="fecha">Fecha:</label>
+                            <input type="date" id="fecha">
+                            <label for="hora">Hora:</label>
+                            <input type="time" id="hora" min="09:00" max="20:00">
+
+                        </fieldset>
+
+                        <input type="submit" value="Enviar" class="boton-enviar">
+
+                    </form>
+
+                </div>
+
+                <div class="contacto-2">
+
+                    <div class="contacto-2_1">
+                        <span>Email:</span> greendoor@gmail.com <br> <span>WhatsApp:</span> +54 351 8061 369 <br> <span>Ubicación:</span> Bernardino Rivadavia 478, Córdoba Capital, Córdoba.
+                    </div>
+                    <div class="contacto-2_2">
+                        <iframe class="mapa-pequeño" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.1126188557128!2d-64.18241418434656!3d-31.411023103136742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94329877d3752793%3A0xd6223ae697563980!2sBernardino%20Rivadavia%20478%2C%20X5021KEJ%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1619828502767!5m2!1ses-419!2sar"
+                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe class="mapa-grande" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.113185802302!2d-64.18240588442994!3d-31.411007481405914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94329877d3752793%3A0xd6223ae697563980!2sBernardino%20Rivadavia%20478%2C%20X5021KEJ%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1617404954682!5m2!1ses-419!2sar"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="contacto-2_3">
+                        <span>Seguinos en las redes</span>
+                        <hr>
+                        <div class="sociales">
+                            <a href="https://www.facebook.com/greendoorargentina-105205957628735" target="_blank"><span> Facebook</span></a>
+                            <a href="https://www.instagram.com/greendoor.argentina/?hl=es-la" target="_blank"><span> Instagram</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p class="copy">&copy; Copyright GreenDoor 2021 - Todos los derechos reservados | Desarrollado por GONZALO SATINA NAGGI</p>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
