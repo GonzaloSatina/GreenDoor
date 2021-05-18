@@ -356,9 +356,12 @@
         }
         
         .card:hover {
-            cursor: pointer;
             box-shadow: 0px 7px 25px 12px rgba(0, 0, 0, 0.7);
             transform: translateY(-3%);
+        }
+        
+        .card a:hover {
+            cursor: pointer;
         }
         
         .productos-inicio {
@@ -437,6 +440,15 @@
             -moz-text-fill-color: white;
             -moz-text-stroke-color: #C546F7;
             -moz-text-stroke-width: 0.2px;
+        }
+        
+        .card-body a {
+            color: black;
+            text-decoration: none;
+        }
+        
+        .card-body a:nth-child(1):hover {
+            color: black;
         }
         
         @media (max-width: 900px) {
