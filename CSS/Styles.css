@@ -1054,3 +1054,28 @@
                 width: 25rem;
             }
         }
+        /* PAGINAS PRODUCTOS */
+        
+        .container-producto {
+            background-color: #53112b;
+            border-radius: 2rem;
+        }
+        
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='000000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+        }
+        
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='000000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+        }
+        
+        .boton-carrito {
+            width: 19rem;
+            height: 5rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: #b40e50;
+            border: none;
+            color: white;
+        }
