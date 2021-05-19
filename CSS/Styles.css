@@ -1110,6 +1110,6 @@
             -moz-text-stroke-width: 0.2px;
         }
         
-        .carousel-inner .carousel-item img {
+        .carousel-inner {
             border-radius: 0.5rem;
         }
