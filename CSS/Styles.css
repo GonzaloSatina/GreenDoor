@@ -151,9 +151,14 @@
                 }
                 
                 .botones-carrito {
+                    text-transform: uppercase;
                     display: flex;
                     justify-content: space-between;
                     margin: 0.5rem 0.5rem 0.1rem 0.5rem;
+                }
+                
+                nav .navegation .show {
+                    margin-left: 0 !important;
                 }
                 
                 @media (max-width: 580px) {
