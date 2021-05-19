@@ -1109,3 +1109,7 @@
             -moz-text-stroke-color: #C546F7;
             -moz-text-stroke-width: 0.2px;
         }
+        
+        .carousel-inner .carousel-item img {
+            border-radius: 0.5rem;
+        }
