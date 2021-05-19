@@ -389,8 +389,8 @@
             font-size: 220%;
             color: white;
             text-decoration: none;
-            font-weight: 700;
-            width: 15%;
+            font-weight: bold;
+            padding: 2rem 4rem;
             height: 5rem;
             border-radius: 0.5rem;
             animation: neon_2 3s infinite;
@@ -451,6 +451,11 @@
             color: black;
         }
         
+        .card-body .btn {
+            text-transform: uppercase;
+            font-weight: 600 !important;
+        }
+        
         @media (max-width: 900px) {
             .productos-inicio {
                 display: grid;
@@ -474,7 +479,7 @@
                 grid-template-rows: 1fr 1fr 1fr 1fr;
             }
             .ver-mas a {
-                width: 40%;
+                padding: 1rem 2rem;
             }
         }
         /* .imagen-producto-1 {
@@ -1090,4 +1095,17 @@
             background-color: #b40e50;
             border: none;
             color: white;
+            animation: neon_2 3s infinite;
+            border-radius: 0.5rem;
+        }
+        
+        .boton-carrito:hover {
+            cursor: pointer;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 25px #ff00de;
+            -webkit-text-fill-color: white;
+            -webkit-text-stroke-color: #C546F7;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-text-fill-color: white;
+            -moz-text-stroke-color: #C546F7;
+            -moz-text-stroke-width: 0.2px;
         }
