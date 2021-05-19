@@ -472,12 +472,15 @@
                     }
                 }
                 
-                @media (max-width: 540px) {
+                @media (max-width: 800px) {
                     .productos-inicio {
                         display: grid;
                         grid-template-columns: 1fr;
-                        grid-template-rows: 1fr 1fr 1fr 1fr;
+                        grid-template-rows: repeat(4, 1fr);
                     }
+                }
+                
+                @media (max-width: 540px) {
                     .ver-mas a {
                         padding: 1rem 2rem;
                     }
