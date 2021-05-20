@@ -891,6 +891,11 @@
                     margin: 1rem 0;
                 }
                 
+                .accordion-button {
+                    padding: 15px !important;
+                    margin: 0 !important;
+                }
+                
                 .accordion-button:not(.collapsed) {
                     background-color: #75173d !important;
                     border-radius: 0.5rem !important;
@@ -911,7 +916,8 @@
                 .accordion-body,
                 .accordion-collapse .collapse .show,
                 .accordion-collapse .collapsing {
-                    padding: 0 5rem !important;
+                    margin: 1rem 1rem 2rem 6rem !important;
+                    padding: 0 !important;
                     font-size: 1.5rem !important;
                 }
                 /* PÁGINA CONTACTO */
