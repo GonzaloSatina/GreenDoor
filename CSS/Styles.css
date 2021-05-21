@@ -260,6 +260,7 @@
                         background-color: rgba(0, 0, 0, 0);
                     }
                     h1 {
+                        padding: 1rem;
                         font-size: 1rem;
                     }
                 }
@@ -492,13 +493,19 @@
                     .productos-inicio {
                         display: grid;
                         grid-template-columns: 1fr;
-                        grid-template-rows: repeat(4, 1fr);
+                        grid-template-rows: repeat(3, 1fr);
                     }
                 }
                 
                 @media (max-width: 540px) {
                     .ver-mas a {
                         padding: 1rem 2rem;
+                    }
+                }
+                
+                @media (max-width: 400px) {
+                    .contenedor-3 .card {
+                        width: 27rem !important;
                     }
                 }
                 /* .imagen-producto-1 {
@@ -612,6 +619,14 @@
                         margin: 0 auto;
                         padding: 7rem;
                     }
+                    .sigamos-2 h4 {
+                        margin-top: 2.7rem;
+                    }
+                    @media (max-width: 512px) {
+                        .sigamos-2 h4 {
+                            margin-top: 0;
+                        }
+                    }
                 }
                 /* FOOTER */
                 
@@ -710,11 +725,13 @@
                 /* PÁGINA PRODUCTOS */
                 
                 .seccion-productos {
-                    width: 90%;
-                    margin: 4rem auto;
                     background-color: #53112b;
                     border-radius: 1rem;
                     padding: 2rem 2rem 0 2rem;
+                }
+                
+                .seccion-productos .contenedor-productos .card {
+                    width: 30rem !important;
                 }
                 
                 .seccion-productos hr {
@@ -745,11 +762,11 @@
                     }
                 }
                 
-                .contenedor-productos {
+                .seccion-productos .contenedor-productos {
                     display: grid;
                     justify-items: center;
                     align-content: center;
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
                     grid-template-rows: 1fr 1fr;
                 }
                 
@@ -760,9 +777,6 @@
                 }
                 
                 @media (min-width: 930px) {
-                    .seccion-productos {
-                        width: 70%;
-                    }
                     .contenedor-productos {
                         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
                     }
@@ -774,37 +788,17 @@
                     justify-content: center;
                     text-align: center;
                     background-image: url(../img/nosotros.jpg);
+                    background-position: top center;
                     background-repeat: no-repeat;
                     background-size: cover;
-                    height: 71%;
-                    background-position-y: 60%;
-                    padding-bottom: 7%;
-                }
-                
-                .contenedor-nosotros {
-                    margin-top: 8.5%;
-                    width: 50%;
-                }
-                
-                .contenedor-nosotros hr {
-                    margin-top: -2.2rem;
-                    margin-bottom: 5.5rem;
-                    height: 1rem !important;
-                    color: black;
-                    opacity: 0.7;
-                    position: relative;
                 }
                 
                 .sobre-nosotros {
                     color: white;
-                    background-color: #b40e50;
                     display: inline;
                     margin: 0 auto;
-                    padding: 3rem 5rem;
                     font-size: 320%;
                     text-transform: uppercase;
-                    position: relative;
-                    z-index: 2;
                     animation: neon 3s infinite;
                 }
                 
@@ -824,7 +818,7 @@
                     color: white;
                     font-size: 200%;
                     width: 100%;
-                    margin: 3% auto;
+                    margin: 15rem auto 8rem auto;
                     background-color: rgba(0, 0, 0, 0.8);
                 }
                 
@@ -918,14 +912,13 @@
                 .accordion-collapse .collapsing {
                     margin: 1rem 1rem 2rem 6rem !important;
                     padding: 0 !important;
-                    font-size: 1.5rem !important;
+                    font-size: 1.7rem !important;
                 }
                 /* PÁGINA CONTACTO */
                 
                 .seccion-contacto {
                     color: white;
                     background-color: #53112b;
-                    width: 70%;
                     margin: 4rem auto;
                     border-radius: 2rem;
                     padding: 4rem 0;
@@ -1086,22 +1079,7 @@
                     -moz-text-stroke-width: 0.2px;
                 }
                 
-                .mapa-pequeño {
-                    display: none;
-                }
-                
                 @media (max-width: 1480px) {
-                    .mapa-pequeño {
-                        display: block;
-                    }
-                    .mapa-grande {
-                        display: none;
-                    }
-                    .seccion-contacto-2 {
-                        display: grid;
-                        grid-template-columns: 1fr;
-                        grid-template-rows: 1fr 1fr;
-                    }
                     .contacto-2 {
                         margin: 4rem auto;
                     }
@@ -1110,10 +1088,13 @@
                     }
                 }
                 
-                @media (max-width: 580px) {
-                    .seccion-contacto {
-                        width: 90%;
+                @media (max-width: 995px) {
+                    .seccion-contacto-2 {
+                        grid-template-columns: 1fr;
                     }
+                }
+                
+                @media (max-width: 580px) {
                     input:not([type="submit"]),
                     textarea,
                     select {
