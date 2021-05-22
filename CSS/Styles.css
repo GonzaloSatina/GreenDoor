@@ -1178,3 +1178,15 @@ textarea {
 .carousel-inner {
     border-radius: 0.5rem;
 }
+
+@media (max-width: 1200px) {
+    .container-producto .explicacion-producto hr {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .container-producto .explicacion-producto hr {
+        width: 60% !important;
+    }
+}
