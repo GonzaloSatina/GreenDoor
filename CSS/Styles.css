@@ -185,6 +185,12 @@ nav .navegation .show {
     }
 }
 
+@media (max-width: 700px) {
+    .carrito-compras {
+        display: none;
+    }
+}
+
 @media (max-width: 900px) {
     .icono {
         width: 20rem;
