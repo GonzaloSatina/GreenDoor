@@ -20,7 +20,10 @@ function cargarEventListeners() {
 
 }
 
-
+function vaciarCarrito() {
+    borrarHTML();
+    articulosCarrito = [];
+}
 
 
 // Funciones
@@ -29,54 +32,50 @@ function agregarProducto(e) {
     e.preventDefault();
     // Delegation para agregar-carrito
     if (e.target.classList.contains('agregar-carrito')) {
-        const Producto = e.target.parentElement.parentElement;
+        const productoSeleccionado = e.target.parentElement.parentElement;
         // Enviamos el Producto seleccionado para tomar sus datos
-        leerDatosProducto(Producto);
+        leerDatosProducto(productoSeleccionado);
     }
 }
 
 // Lee los datos del Producto
-function leerDatosProducto(Producto) {
+function leerDatosProducto(producto) {
     const infoProducto = {
-        imagen: Producto.querySelector('img').src,
-        titulo: Producto.querySelector('h5').textContent,
-        precio: Producto.querySelector('.precio').textContent,
-        id: Producto.querySelector('a').getAttribute('data-id'),
+        imagen: producto.querySelector('img').src,
+        titulo: producto.querySelector('h5').textContent,
+        precio: producto.querySelector('.precio').textContent,
+        id: producto.querySelector('a').getAttribute('data-id'),
         cantidad: 1
     }
 
 
-    if (articulosCarrito.some(Producto => Producto.id === infoProducto.id)) {
-        const Productos = articulosCarrito.map(Producto => {
-            if (Producto.id === infoProducto.id) {
-                Producto.cantidad++;
-                return Producto;
+    const existe = articulosCarrito.some(producto => producto.id === infoProducto.id)
+
+    if (existe) {
+        const productos = articulosCarrito.map(producto => {
+            if (producto.id === infoProducto.id) {
+                producto.cantidad++;
+                producto.precio = `$${Number(infoProducto.precio.slice(1)) * producto.cantidad}`;
+                return producto;
             } else {
-                return Producto;
+                return producto;
             }
         })
-        articulosCarrito = [...Productos];
+        articulosCarrito = [...productos];
     } else {
         articulosCarrito = [...articulosCarrito, infoProducto];
     }
 
-    console.log(articulosCarrito)
-
-
-
-    // console.log(articulosCarrito)
     carritoHTML();
 }
 
 // Elimina el Producto del carrito en el DOM
 function eliminarProducto(e) {
-    e.preventDefault();
     if (e.target.classList.contains('borrar-producto')) {
-        // e.target.parentElement.parentElement.remove();
-        const ProductoId = e.target.getAttribute('data-id')
+        const productoId = e.target.getAttribute('data-id')
 
         // Eliminar del arreglo del carrito
-        articulosCarrito = articulosCarrito.filter(Producto => Producto.id !== ProductoId);
+        articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
 
         carritoHTML();
     }
@@ -86,19 +85,19 @@ function eliminarProducto(e) {
 // Muestra el Producto seleccionado en el Carrito
 function carritoHTML() {
 
-    vaciarCarrito();
+    borrarHTML();
 
-    articulosCarrito.forEach(Producto => {
+    articulosCarrito.forEach(producto => {
         const row = document.createElement('tr');
         row.innerHTML = `
                <td>  
-                    <img src="${Producto.imagen}" width=100>
+                    <img src="${producto.imagen}" width=100>
                </td>
-               <td>${Producto.titulo}</td>
-               <td>${Producto.precio}</td>
-               <td>${Producto.cantidad} </td>
+               <td>${producto.titulo}</td>
+               <td>${producto.precio}</td>
+               <td>${producto.cantidad} </td>
                <td>
-                    <a href="#" class="borrar-producto" data-id="${Producto.id}">X</a>
+                    <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
                </td>
           `;
         contenedorCarrito.appendChild(row);
@@ -107,12 +106,12 @@ function carritoHTML() {
 }
 
 // Elimina los Productos del carrito en el DOM
-function vaciarCarrito() {
+function borrarHTML() {
     // forma lenta
     // contenedorCarrito.innerHTML = '';
 
 
-    // forma rapida (recomendada)
+    // forma rapida 
     while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
