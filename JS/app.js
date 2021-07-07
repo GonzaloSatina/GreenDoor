@@ -18,6 +18,12 @@ function cargarEventListeners() {
     // Al Vaciar el carrito
     vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
 
+    document.addEventListener('DOMContentLoaded', () => {
+        articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        // console.log(articulosCarrito);
+        carritoHTML();
+    });
+
 }
 
 function vaciarCarrito() {
@@ -88,22 +94,31 @@ function carritoHTML() {
     borrarHTML();
 
     articulosCarrito.forEach(producto => {
+        const { imagen, titulo, precio, cantidad, id } = producto;
         const row = document.createElement('tr');
         row.innerHTML = `
                <td>  
-                    <img src="${producto.imagen}" width=100>
+                    <img src="${imagen}" width=100>
                </td>
-               <td>${producto.titulo}</td>
-               <td>${producto.precio}</td>
-               <td>${producto.cantidad} </td>
+               <td>${titulo}</td>
+               <td>${precio}</td>
+               <td style="text-align:center;">${cantidad} </td>
                <td>
-                    <a href="#" class="borrar-producto" data-id="${producto.id}">X</a>
+                    <a href="#" class="borrar-producto" data-id="${id}">X</a>
                </td>
           `;
         contenedorCarrito.appendChild(row);
     });
 
+    sincronizarStorage();
+
+
 }
+
+function sincronizarStorage() {
+    localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
+}
+
 
 // Elimina los Productos del carrito en el DOM
 function borrarHTML() {
