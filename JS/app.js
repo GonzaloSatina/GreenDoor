@@ -4,6 +4,7 @@ const listaProductos = document.querySelector('#lista-productos');
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
 let articulosCarrito = [];
+let totalCarrito = document.querySelector('#total')
 
 // Listeners
 cargarEventListeners();
@@ -29,7 +30,10 @@ function cargarEventListeners() {
 function vaciarCarrito() {
     borrarHTML();
     articulosCarrito = [];
+    localStorage.clear();
 }
+
+
 
 
 // Funciones
@@ -77,15 +81,41 @@ function leerDatosProducto(producto) {
 
 // Elimina el Producto del carrito en el DOM
 function eliminarProducto(e) {
-    if (e.target.classList.contains('borrar-producto')) {
-        const productoId = e.target.getAttribute('data-id')
 
-        // Eliminar del arreglo del carrito
-        articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
+    e.preventDefault();
 
+    if (e.target.classList.contains("borrar-producto")) {
+
+        const id = e.target.getAttribute("data-id");
+
+        const existe = articulosCarrito.some(producto => producto.id === id && producto.cantidad > 1);
+
+        if (existe) {
+
+
+            const productos = articulosCarrito.map(producto => {
+
+                if (producto.id === id) {
+
+                    producto.cantidad--;
+                    return producto;
+                } else {
+                    return producto;
+                }
+            });
+
+            articulosCarrito = [...productos];
+
+        } else {
+
+            articulosCarrito = articulosCarrito.filter(producto => producto.id !== id);
+
+        }
         carritoHTML();
     }
 }
+
+// Calcula la suma de los productos
 
 
 // Muestra el Producto seleccionado en el Carrito

@@ -46,29 +46,27 @@
 
                 <!-- CARRITO NAVBAR -->
                 <div class="carrito-compras">
-                    <i class="fas fa-shopping-cart"></i>
-                    <div class="contenido" class="oculto">
-                        <table id="lista-carrito" class="">
+                    <i id="img-carrito" class="fas fa-shopping-cart"></i>
+                    <div id="carrito" class="contenido" class="oculto">
+                        <table id="lista-carrito" class="w-100">
                             <thead>
-                                <tr class="palabras-carrito">
+                                <tr>
+                                    <th class="invisible">Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
                                     <th></th>
-                                    <th class="palabra-nombre-carrito">Nombre</th>
-                                    <th class="palabra-precio-carrito">Precio</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="../img/Led-1.jpg" class="img-producto-carrito">
-                                    </td>
-                                    <td class="nombre-carrito">Led Full Spectrum 300w</td>
-                                    <td class="precio-carrito">$18.000</td>
-                                </tr>
-                            </tbody>
+                            <tbody></tbody>
                         </table>
+                        <hr>
+                        <div class="me-3">
+                            <p class="fw-bold text-end me-5 pe-4">Total:<span class="fw-normal shoppingCartTotal" id="total"> $0</span></p>
+                        </div>
                         <div class="botones-carrito">
-                            <a href="Carrito.html" class="boton boton-vaciar">Vaciar Carrito</a>
-                            <a href="#" class="boton">Ver Carrito</a>
+                            <a href="#" id="vaciar-carrito" class="boton boton-vaciar">Vaciar Carrito</a>
+                            <a href="carrito.html" class="boton">Ver Carrito</a>
                         </div>
                     </div>
                 </div>
