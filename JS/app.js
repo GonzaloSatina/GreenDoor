@@ -3,8 +3,9 @@ const carrito = document.querySelector('#carrito');
 const listaProductos = document.querySelector('#lista-productos');
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
+const totalDOM = document.querySelector('#total');
 let articulosCarrito = [];
-let totalCarrito = document.querySelector('#total')
+let total = 0;
 
 // Listeners
 cargarEventListeners();
@@ -24,12 +25,14 @@ function cargarEventListeners() {
         // console.log(articulosCarrito);
         carritoHTML();
     });
+    totalCarrito();
 
 }
 
 function vaciarCarrito() {
     borrarHTML();
     articulosCarrito = [];
+    totalCarrito();
     localStorage.clear();
 }
 
@@ -45,6 +48,7 @@ function agregarProducto(e) {
         const productoSeleccionado = e.target.parentElement.parentElement;
         // Enviamos el Producto seleccionado para tomar sus datos
         leerDatosProducto(productoSeleccionado);
+        totalCarrito();
     }
 }
 
@@ -66,6 +70,7 @@ function leerDatosProducto(producto) {
             if (producto.id === infoProducto.id) {
                 producto.cantidad++;
                 producto.precio = `$${Number(infoProducto.precio.slice(1)) * producto.cantidad}`;
+                totalCarrito();
                 return producto;
             } else {
                 return producto;
@@ -112,6 +117,8 @@ function eliminarProducto(e) {
 
         }
         carritoHTML();
+
+
     }
 }
 
@@ -127,19 +134,19 @@ function carritoHTML() {
         const { imagen, titulo, precio, cantidad, id } = producto;
         const row = document.createElement('tr');
         row.innerHTML = `
-               <td>  
+               <td class="itemCarrito">  
                     <img src="${imagen}" width=100>
                </td>
                <td>${titulo}</td>
-               <td>${precio}</td>
+               <td class="precioCarrito">${precio}</td>
                <td style="text-align:center;">${cantidad} </td>
                <td>
-                    <a href="#" class="borrar-producto" data-id="${id}">X</a>
+                    <a href="#" class="borrar-producto idcarrito" data-id="${id}">X</a>
                </td>
           `;
         contenedorCarrito.appendChild(row);
+        totalCarrito();
     });
-
     sincronizarStorage();
 
 
@@ -159,5 +166,32 @@ function borrarHTML() {
     // forma rapida 
     while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+        totalCarrito();
     }
 }
+
+function totalCarrito() {
+    //     const totalDOM = document.querySelector('#total');
+    //     let total = 0;
+
+    const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
+
+    shoppingCartItems.forEach((itemCarrito) => {
+        const precioCarritoElemento = itemCarrito.querySelector(
+            '.precioCarrito'
+        );
+        const precioCarrito = Number(
+            precioCarritoElemento.textContent.replace('$', '')
+        );
+        const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
+            '.idcarrito'
+        );
+        const idcarrito = Number(
+            shoppingCartItemQuantityElement.value
+        );
+        total = total + precioCarrito * idcarrito;
+    });
+    totalDOM.innerHTML = ` $${total.toFixed(2)}`;
+};
+
+console.log(total);
