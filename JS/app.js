@@ -69,8 +69,8 @@ function leerDatosProducto(producto) {
         const productos = articulosCarrito.map(producto => {
             if (producto.id === infoProducto.id) {
                 producto.cantidad++;
-                producto.precio = `$${Number(infoProducto.precio.slice(1)) * producto.cantidad}`;
-                totalCarrito();
+                producto.precio = Number(infoProducto.precio) * producto.cantidad;
+
                 return producto;
             } else {
                 return producto;
@@ -82,6 +82,7 @@ function leerDatosProducto(producto) {
     }
 
     carritoHTML();
+    totalCarrito();
 }
 
 // Elimina el Producto del carrito en el DOM
@@ -117,7 +118,7 @@ function eliminarProducto(e) {
 
         }
         carritoHTML();
-
+        totalCarrito();
 
     }
 }
@@ -138,8 +139,8 @@ function carritoHTML() {
                     <img src="${imagen}" width=100>
                </td>
                <td>${titulo}</td>
-               <td class="precioCarrito">${precio}</td>
-               <td style="text-align:center;">${cantidad} </td>
+               <td class="precioCarrito">$${precio}</td>
+               <td style="text-align:center;">${cantidad}</td>
                <td>
                     <a href="#" class="borrar-producto idcarrito" data-id="${id}">X</a>
                </td>
@@ -171,27 +172,11 @@ function borrarHTML() {
 }
 
 function totalCarrito() {
-    //     const totalDOM = document.querySelector('#total');
-    //     let total = 0;
+    total = 0;
+    articulosCarrito.forEach((itemCarrito) => {
+        let valorNuev = Number(itemCarrito.precio);
+        total = total + valorNuev;
 
-    const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
-
-    shoppingCartItems.forEach((itemCarrito) => {
-        const precioCarritoElemento = itemCarrito.querySelector(
-            '.precioCarrito'
-        );
-        const precioCarrito = Number(
-            precioCarritoElemento.textContent.replace('$', '')
-        );
-        const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
-            '.idcarrito'
-        );
-        const idcarrito = Number(
-            shoppingCartItemQuantityElement.value
-        );
-        total = total + precioCarrito * idcarrito;
     });
     totalDOM.innerHTML = ` $${total.toFixed(2)}`;
 };
-
-console.log(total);
