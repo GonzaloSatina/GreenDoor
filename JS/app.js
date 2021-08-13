@@ -117,6 +117,7 @@ function eliminarProducto(e) {
             articulosCarrito = articulosCarrito.filter(producto => producto.id !== id);
 
         }
+
         carritoHTML();
         totalCarrito();
 
@@ -169,6 +170,7 @@ function borrarHTML() {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
         totalCarrito();
     }
+
 }
 
 function totalCarrito() {
@@ -178,5 +180,5 @@ function totalCarrito() {
         total = total + valorNuev;
 
     });
-    totalDOM.innerHTML = ` $${total.toFixed(2)}`;
+    totalDOM.innerHTML = ` $${total}`;
 };
